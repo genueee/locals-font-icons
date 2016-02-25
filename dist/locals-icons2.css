@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "locals-icons2";
+  src: url('./locals-icons2.eot');
+  src: url('./locals-icons2.eot?#iefix') format('eot'),
+    url('./locals-icons2.woff2') format('woff2'),
+    url('./locals-icons2.woff') format('woff'),
+    url('./locals-icons2.ttf') format('truetype'),
+    url('./locals-icons2.svg#locals-icons2') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon2 {
+  display: inline-block;
+  font-family: "locals-icons2";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  letter-spacing: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon2--2x { font-size: 2em; }
+.icon2--3x { font-size: 3em; }
+.icon2--4x { font-size: 4em; }
+.icon2--5x { font-size: 5em; }
+
+.icon2--marker:before { content: "\EA01" }
+.icon2--paper:before { content: "\EA02" }
