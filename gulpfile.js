@@ -2,7 +2,9 @@ var gulp = require("gulp"),
   del = require('del'),
   iconfont = require('gulp-iconfont'),
   consolidate = require('gulp-consolidate'),
-  githubPages = require('gulp-gh-pages');
+  rename = require('gulp-rename'),
+  githubPages = require('gulp-gh-pages'),
+  runSequence = require('run-sequence');
 
 var ICONS = './icons',
   TEMPLATES = './templates',
@@ -16,7 +18,7 @@ var ICONS = './icons',
       src: [DIST]
     },
     githubPages: {
-      src: DIST + '/**/*',
+      src: DIST + '/*',
       options: {
         message: 'gh-pages'
       }
@@ -36,7 +38,8 @@ var ICONS = './icons',
     templates: {
       html: {
         src: TEMPLATES + '/locals-icons2.html',
-        dest: DIST
+        dest: DIST,
+        outputName: 'index.html'
       },
       css: {
         src: TEMPLATES + '/locals-icons2.css',
@@ -67,18 +70,23 @@ gulp.task('iconfont', function(){
           glyphs: glyphs,
           className: className
         }))
+        .pipe(rename(config.templates.html.outputName))
         .pipe(gulp.dest(config.templates.html.dest));
     })
     .pipe(gulp.dest(config.iconfont.dest));
 })
 
-gulp.task('deploy', ['dist'], function(){
+gulp.task('githubPages', function(){
   return gulp.src(config.githubPages.src)
     .pipe(githubPages(config.githubPages.options));
-})
+});
 
 gulp.task('dist', ['clean'], function(cb){
-  gulp.start('iconfont');
+  runSequence(['iconfont'], cb);
+});
+
+gulp.task('deploy', ['dist'], function(){
+  gulp.start('githubPages');
 });
 
 gulp.task('default', ['dist']);
