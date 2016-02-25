@@ -24,10 +24,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon2--2x { font-size: 2em; }
-.icon2--3x { font-size: 3em; }
-.icon2--4x { font-size: 4em; }
-.icon2--5x { font-size: 5em; }
+.icon2-2x { font-size: 2em; }
+.icon2-3x { font-size: 3em; }
+.icon2-4x { font-size: 4em; }
+.icon2-5x { font-size: 5em; }
 
-.icon2--marker:before { content: "\EA01" }
-.icon2--paper:before { content: "\EA02" }
+.icon2-marker:before { content: "\EA01" }
+.icon2-paper:before { content: "\EA02" }
