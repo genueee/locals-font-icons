@@ -24,10 +24,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.<%= className %>--2x { font-size: 2em; }
-.<%= className %>--3x { font-size: 3em; }
-.<%= className %>--4x { font-size: 4em; }
-.<%= className %>--5x { font-size: 5em; }
+.<%= className %>-2x { font-size: 2em; }
+.<%= className %>-3x { font-size: 3em; }
+.<%= className %>-4x { font-size: 4em; }
+.<%= className %>-5x { font-size: 5em; }
 
-<% _.each(glyphs, function(glyph) { %>.<%= className %>--<%= glyph.name %>:before { content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>" }
+<% _.each(glyphs, function(glyph) { %>.<%= className %>-<%= glyph.name %>:before { content: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>" }
 <% }); %>
